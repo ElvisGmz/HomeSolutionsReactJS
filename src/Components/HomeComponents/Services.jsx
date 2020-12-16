@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Row = styled.div`
   min-height: 200px;
   background-color: #ebf8ff;
-  padding: 20px 10px;
+  padding: 25px 0px 3rem;
   box-sizing: border-box;
 `;
 
@@ -37,6 +37,7 @@ const Card = styled.div`
   padding: 1.5rem 20px;
   cursor: pointer;
   transition: all 0.3s;
+  max-width: 400px;
 
     & *{
         text-align: center;

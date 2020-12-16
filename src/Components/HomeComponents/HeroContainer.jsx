@@ -81,6 +81,7 @@ const Input = styled.input`
 
   &[type="checkbox"]{
     position: absolute;
+    z-index: -10;
   }
 
   &[type="submit"]{
@@ -143,7 +144,7 @@ export default function HeroContainer() {
           </HeroTextContainer>
           <HeroForm>
             <Header>Cotiza Gratis</Header>
-            <Input width="100%" type="text" bgColor="#f0f0f0" txtColor="#000" placeholder="Direccion" required />
+            <Input width="100%" type="text" bgColor="#f0f0f0" txtColor="#000" placeholder="Nombre y Apellidos" required />
             <Input width="100%" type="text" bgColor="#f0f0f0" txtColor="#000" placeholder="Direccion" required />
             <Input width="38%" type="text" bgColor="#f0f0f0" txtColor="#000" placeholder="Codigo Postal" required />
             <Input width="60%" type="text" bgColor="#f0f0f0" txtColor="#000" placeholder="Telefono" required />

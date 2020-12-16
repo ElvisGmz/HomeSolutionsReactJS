@@ -53,7 +53,7 @@ const LinksContainer = styled.div`
 
   @media only screen and (max-width: 700px) {
     position: fixed;
-    height: calc(100vh - 58.4px);
+    height: calc(100vh - 57.6px);
     min-width: 320px;
     width: 100%;
     top: 58.4px;
