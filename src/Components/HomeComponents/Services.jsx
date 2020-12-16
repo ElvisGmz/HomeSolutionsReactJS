@@ -21,6 +21,7 @@ const CardsContainer = styled.div`
   max-width: 1144px;
   box-sizing: border-box;
   margin: auto;
+  padding: 10px 20px;
 `;
 
 const Card = styled.div`
@@ -37,6 +38,10 @@ const Card = styled.div`
   cursor: pointer;
   transition: all 0.3s;
 
+    & *{
+        text-align: center;
+    }
+
   &:active {
     transform: scale(0.975);
   }
@@ -52,7 +57,6 @@ const Card = styled.div`
   & p {
     color: #fff;
     font-size: 13px;
-    text-align: justify;
   }
 `;
 

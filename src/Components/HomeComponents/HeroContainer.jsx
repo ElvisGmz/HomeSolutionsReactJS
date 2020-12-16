@@ -41,8 +41,9 @@ const HeroForm = styled.form`
   box-sizing: border-box;
   max-width: 400px;
   border-radius: 10px;
-  padding: 10px;
+  padding: 20px;
   margin: 5px;
+  margin-bottom: 20px;
 
   & label{
     font-size: 12px;
