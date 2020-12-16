@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const Header = styled.header`
+  position: fixed;
+  width: 100%;
   background-color: #21212c;
   display: flex;
   justify-content: center;

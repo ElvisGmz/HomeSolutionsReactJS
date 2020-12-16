@@ -11,6 +11,10 @@ const GlobalStyles = createGlobalStyle`
   body{
     margin: 0;
   }
+
+  ::-webkit-scrollbar{
+    width: 5px;
+  }
 `
 
 ReactDOM.render(
