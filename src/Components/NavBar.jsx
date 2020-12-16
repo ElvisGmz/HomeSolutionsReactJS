@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Header = styled.header`
   position: fixed;
   width: 100%;
-  background-color: #21212c;
+  background-color: #21212C;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,10 +53,10 @@ const LinksContainer = styled.div`
 
   @media only screen and (max-width: 700px) {
     position: fixed;
-    height: calc(100vh - 57.5px);
+    height: calc(100vh - 57px);
     min-width: 320px;
     width: 100%;
-    top: 57.5px;
+    top: 57px;
     left: ${({ isOpen }) => (isOpen ? "0" : "100%")};
     background-color: #21212c;
     flex-flow: column nowrap;
