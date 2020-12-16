@@ -6,13 +6,13 @@ const HeroBanner = styled.div`
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: calc(100vh - 57.6px);
-  padding-top: 57.6px;
+  min-height: calc(100vh - 57.5px);
+  padding-top: 57.5px;
   /* max-height: 700px; */
 `;
 
 const HeroRow = styled.div`
-  min-height: calc(100vh - 57.6px);
+  min-height: calc(100vh - 57.5px);
   width: 100%;
   max-width: 1144px;
   background-color: #21212cdd;
