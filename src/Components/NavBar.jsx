@@ -56,7 +56,7 @@ const LinksContainer = styled.div`
     height: calc(100vh - 57.6px);
     min-width: 320px;
     width: 100%;
-    top: 58.4px;
+    top: 57.6px;
     left: ${({ isOpen }) => (isOpen ? "0" : "100%")};
     background-color: #21212c;
     flex-flow: column nowrap;
