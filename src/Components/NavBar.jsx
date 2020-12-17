@@ -65,7 +65,7 @@ const LinksContainer = styled.div`
     transition: all 0.5s;
 
     & a {
-      width: 100%;
+      width: calc(100% - 48px);
       text-align: center;
     }
   }

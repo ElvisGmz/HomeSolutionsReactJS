@@ -21,7 +21,7 @@ const CardsContainer = styled.div`
   max-width: 1144px;
   box-sizing: border-box;
   margin: auto;
-  padding: 10px 20px;
+  padding: 10px 10px;
 `;
 
 const Card = styled.div`
@@ -31,13 +31,14 @@ const Card = styled.div`
   box-sizing: border-box;
   flex: 30%;
   min-width: 280px;
-  background-color: #21212c;
+  background-color: #10264e;
   min-height: 250px;
   margin: 5px;
-  padding: 1.5rem 20px;
+  padding: 2rem 25px;
   cursor: pointer;
   transition: all 0.3s;
   max-width: 400px;
+  border-radius: 5px;
 
     & *{
         text-align: center;
@@ -48,16 +49,20 @@ const Card = styled.div`
   }
 
   & h1 {
-    color: #fff;
-    font-size: 16px;
+    color: #f4ff5f;
+    font-size: 22px;
     width: 100%;
-    margin-top: 1.5rem;
-    margin-bottom: 5px;
+    margin-top: 2rem;
+    margin-bottom: 0px;
+    font-weight: 100;
   }
 
   & p {
-    color: #fff;
-    font-size: 13px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    line-height: 18px;
   }
 `;
 
@@ -70,7 +75,7 @@ export default function Services() {
   return (
     <>
       <Row>
-        <Title>Te ofrecemos</Title>
+        <Title>Nuestros Servicios</Title>
         <CardsContainer>
           <Card>
             <Icon src="https://res.cloudinary.com/superfolio/image/upload/v1608151891/homesol/pared_mbq9hr.svg" />
