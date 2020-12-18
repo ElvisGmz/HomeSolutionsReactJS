@@ -54,13 +54,13 @@ const Card = styled.div`
     width: 100%;
     margin-top: 2rem;
     margin-bottom: 0px;
-    font-weight: 100;
+    font-weight: 300;
   }
 
   & p {
     color: #ffffff;
     font-size: 14px;
-    font-weight: 100;
+    font-weight: 200;
     letter-spacing: 1px;
     line-height: 18px;
   }

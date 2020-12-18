@@ -106,8 +106,8 @@ export default function NavBar() {
           </Logo>
         </LogoContainer>
         <LinksContainer isOpen={navOpen}>
-          <Link to="/Login">Iniciar Sesion</Link>
-          <Link to="/Register">Registrarme</Link>
+          <Link to="/Login">Servicios</Link>
+          <Link to="/Register">Contactos</Link>
           <Link to="/About">Sobre Nosotros</Link>
         </LinksContainer>
         <BtnMenu onClick={() => setNavOpen(!navOpen)}>
