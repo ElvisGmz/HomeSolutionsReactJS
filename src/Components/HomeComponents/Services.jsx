@@ -71,13 +71,17 @@ const Icon = styled.img`
   object-fit: cover;
 `;
 
+const scrollTop = () =>{
+  window.scrollTo({top: 0, behavior: 'smooth'})
+}
+
 export default function Services() {
   return (
     <>
       <Row>
         <Title>Nuestros Servicios</Title>
         <CardsContainer>
-          <Card>
+          <Card onClick={scrollTop}>
             <Icon src="https://res.cloudinary.com/superfolio/image/upload/v1608151891/homesol/pared_mbq9hr.svg" />
             <h1>Lorem ipsum dolor sit amet</h1>
             <p>
@@ -87,7 +91,7 @@ export default function Services() {
               beatae. Accusamus, saepe deleniti! Iste, cum alias?
             </p>
           </Card>
-          <Card>
+          <Card onClick={scrollTop}>
             <Icon src="https://res.cloudinary.com/superfolio/image/upload/v1608151891/homesol/roller-paint_idwmu5.svg" />
             <h1>Lorem ipsum dolor sit amet</h1>
             <p>
@@ -97,7 +101,7 @@ export default function Services() {
               beatae. Accusamus, saepe deleniti! Iste, cum alias?
             </p>
           </Card>
-          <Card>
+          <Card onClick={scrollTop}>
             <Icon src="https://res.cloudinary.com/superfolio/image/upload/v1608151891/homesol/pared-de-vidrio_afnmwg.svg" />
             <h1>Lorem ipsum dolor sit amet</h1>
             <p>
@@ -107,7 +111,7 @@ export default function Services() {
               beatae. Accusamus, saepe deleniti! Iste, cum alias?
             </p>
           </Card>
-          <Card>
+          <Card onClick={scrollTop}>
             <Icon src="https://res.cloudinary.com/superfolio/image/upload/v1608151891/homesol/bloquear_bhz71x.svg" />
             <h1>Lorem ipsum dolor sit amet</h1>
             <p>
@@ -117,7 +121,7 @@ export default function Services() {
               beatae. Accusamus, saepe deleniti! Iste, cum alias?
             </p>
           </Card>
-          <Card>
+          <Card onClick={scrollTop}>
             <Icon src="https://res.cloudinary.com/superfolio/image/upload/v1608152470/homesol/sierra-circular_pefbeq.svg" />
             <h1>Lorem ipsum dolor sit amet</h1>
             <p>
@@ -127,7 +131,7 @@ export default function Services() {
               beatae. Accusamus, saepe deleniti! Iste, cum alias?
             </p>
           </Card>
-          <Card>
+          <Card onClick={scrollTop}>
             <Icon src="https://res.cloudinary.com/superfolio/image/upload/v1608151891/homesol/tubo_l7en3p.svg" />
             <h1>Lorem ipsum dolor sit amet</h1>
             <p>

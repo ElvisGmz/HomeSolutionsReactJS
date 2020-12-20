@@ -62,7 +62,7 @@ const LinksContainer = styled.div`
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-    transition: all 0.5s;
+    transition: all 0.3s;
 
     & a {
       width: calc(100% - 48px);
@@ -94,6 +94,7 @@ const BtnMenu = styled.div`
   }
 `;
 
+
 export default function NavBar() {
   const [navOpen, setNavOpen] = useState(false);
 
@@ -102,13 +103,13 @@ export default function NavBar() {
       <Nav>
         <LogoContainer>
           <Logo>
-            <Link to="/">HomeSolutions</Link>
+            <Link onClick={()=> setNavOpen(false)} to="/">HomeSolutions</Link>
           </Logo>
         </LogoContainer>
         <LinksContainer isOpen={navOpen}>
-          <Link to="/Login">Servicios</Link>
-          <Link to="/Register">Contactos</Link>
-          <Link to="/About">Sobre Nosotros</Link>
+          <Link onClick={()=> setNavOpen(false)} to="/Services">Servicios</Link>
+          <Link onClick={()=> setNavOpen(false)} to="/Contacts">Contactos</Link>
+          <Link onClick={()=> setNavOpen(false)} to="/About">Sobre Nosotros</Link>
         </LinksContainer>
         <BtnMenu onClick={() => setNavOpen(!navOpen)}>
           <div></div>
