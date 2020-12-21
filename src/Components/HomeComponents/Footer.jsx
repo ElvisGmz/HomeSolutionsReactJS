@@ -4,7 +4,7 @@ import {
   faFacebookSquare,
   faLinkedin,
   faInstagramSquare,
-  faWhatsappSquare
+  faWhatsappSquare,
 } from "@fortawesome/free-brands-svg-icons";
 import { faPhoneSquare, faMap } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -47,23 +47,19 @@ const Box = styled.div`
     line-height: 18px;
   }
 
-&:nth-child(1){
-  max-width: 200px;
+  &:nth-child(1) {
+    max-width: 200px;
 
-  @media only screen and (max-width: 405px){
-    max-width: 100%;
+    @media only screen and (max-width: 405px) {
+      max-width: 100%;
+    }
   }
 
-}
-
-&:nth-child(3){
-
-  @media only screen and (max-width: 600px){
-    max-width: 100%;
+  &:nth-child(3) {
+    @media only screen and (max-width: 600px) {
+      max-width: 100%;
+    }
   }
-
-}
-
 `;
 
 const ContactsContainer = styled.div`
@@ -73,15 +69,15 @@ const ContactsContainer = styled.div`
   padding-left: 10px;
   box-sizing: border-box;
 
-  &:last-child{
+  &:last-child {
     margin-bottom: 0px;
   }
 
-  & span{
+  & span {
     margin-left: 10px;
     font-size: 13px;
   }
-`
+`;
 
 const CopyFooter = styled.div`
   width: 100%;
@@ -97,14 +93,14 @@ const Button = styled.button`
   padding: 10px;
   border: 0;
   border-radius: 3px;
-  color: #FFF;
+  color: #fff;
   outline: none;
   cursor: pointer;
   transition: 0.2s;
-  &:hover{
+  &:hover {
     background-color: #0d6447;
   }
-`
+`;
 
 export default function Footer() {
   return (
@@ -136,17 +132,19 @@ export default function Footer() {
           </Box>
           <Box>
             <h1>Dirección</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Laudantium temporibus veritatis non neque consectetur? Quos,
               reiciendis ullam aut aspernatur nisi similique
             </p>
-            <Button onClick={() => window.open("https://goo.gl/maps/TUcPzvMyXw7nzdFV8", "_blank")}>
-              
-            <FontAwesomeIcon size="lg" icon={faMap} /> Ver en Maps</Button>
+            <Button
+              onClick={() =>
+                window.open("https://goo.gl/maps/TUcPzvMyXw7nzdFV8", "_blank")
+              }
+            >
+              <FontAwesomeIcon size="lg" icon={faMap} /> Ver en Maps
+            </Button>
           </Box>
           <Box>
             <h1>Sobre Nosotros</h1>

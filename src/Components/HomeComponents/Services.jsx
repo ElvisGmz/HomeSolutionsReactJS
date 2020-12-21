@@ -40,9 +40,9 @@ const Card = styled.div`
   max-width: 400px;
   border-radius: 5px;
 
-    & *{
-        text-align: center;
-    }
+  & * {
+    text-align: center;
+  }
 
   &:active {
     transform: scale(0.975);
@@ -71,9 +71,9 @@ const Icon = styled.img`
   object-fit: cover;
 `;
 
-const scrollTop = () =>{
-  window.scrollTo({top: 0, behavior: 'smooth'})
-}
+const scrollTop = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
 
 export default function Services() {
   return (

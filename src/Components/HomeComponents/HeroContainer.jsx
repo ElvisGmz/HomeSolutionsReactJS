@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext, useRef, useEffect } from "react";
 import styled from "styled-components";
+import HeroContext from "../../hero-context";
 
 const HeroBanner = styled.div`
-min-height: 575px;
+  min-height: 575px;
   height: calc(100vh - 57px);
   padding-top: 57px;
   max-height: 700px;
@@ -20,21 +21,20 @@ min-height: 575px;
     filter: brightness(25%);
     max-height: 700px;
 
-    @media only screen and (max-width:768px){
-    height: 100%;
-    max-height: 1050px;
+    @media only screen and (max-width: 768px) {
+      height: 100%;
+      max-height: 1050px;
+    }
   }
 
-  }
-
-  @media only screen and (max-width:768px){
+  @media only screen and (max-width: 768px) {
     height: 100%;
     max-height: 1050px;
   }
 `;
 
 const HeroRow = styled.div`
-min-height: 575px;
+  min-height: 575px;
   height: calc(100vh - 57px);
   max-height: 700px;
   width: 100%;
@@ -48,7 +48,7 @@ min-height: 575px;
 
   @media only screen and (max-width: 768px) {
     flex-flow: column nowrap;
-      height: 100%;
+    height: 100%;
     max-height: 1050px;
   }
 `;
@@ -148,10 +148,17 @@ const Hr = styled.hr`
 `;
 
 export default function HeroContainer() {
+  const { setHeight } = useContext(HeroContext);
+  const getHeight = useRef();
+
+  useEffect(() => {
+    setHeight(getHeight.current.scrollHeight);
+  }, [setHeight]);
+
   return (
     <React.Fragment>
       <HeroBanner>
-        <HeroRow>
+        <HeroRow ref={getHeight}>
           <HeroTextContainer>
             <h1>Reparación e instalación de parquet y tarima</h1>
             <p>

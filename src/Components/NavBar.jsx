@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { hero } from "../hero-context";
 
 const Header = styled.header`
   position: fixed;
   width: 100%;
-  background-color: #21212C;
+  background-color: #21212c;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,28 +23,30 @@ const Nav = styled.nav`
 const LogoContainer = styled.div`
   font-size: 18px;
   margin-left: 1.5rem;
+  cursor: pointer;
 `;
 
 const Logo = styled.p`
   font-weight: 700;
 
-  & a {
+  & span {
     color: #fff;
     text-decoration: none;
   }
 `;
 
-const LinksContainer = styled.div`
+const LinkContainer = styled.div`
   display: flex;
   min-width: 375px;
   justify-content: space-between;
 
-  & > a {
+  & > span {
     color: #fff;
     text-decoration: none;
     font-size: 14px;
     padding: 1.26rem 1.5rem;
     transition: all 0.7s;
+    cursor: pointer;
 
     &:hover {
       background-color: dodgerblue;
@@ -64,7 +66,7 @@ const LinksContainer = styled.div`
     justify-content: center;
     transition: all 0.3s;
 
-    & a {
+    & span {
       width: calc(100% - 48px);
       text-align: center;
     }
@@ -94,23 +96,38 @@ const BtnMenu = styled.div`
   }
 `;
 
-
 export default function NavBar() {
   const [navOpen, setNavOpen] = useState(false);
+
+  const LinkScrollTop = () => {
+    setNavOpen(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const LinkScrollBottom = () => {
+    setNavOpen(false);
+    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+  };
+
+  const LinkScrollServices = () => {
+    setNavOpen(false);
+    console.log(hero.height);
+    window.scrollTo({ top: hero.height, behavior: "smooth" });
+  };
 
   return (
     <Header>
       <Nav>
         <LogoContainer>
           <Logo>
-            <Link onClick={()=> setNavOpen(false)} to="/">HomeSolutions</Link>
+            <span onClick={LinkScrollTop}>HomeSolutions</span>
           </Logo>
         </LogoContainer>
-        <LinksContainer isOpen={navOpen}>
-          <Link onClick={()=> setNavOpen(false)} to="/Services">Servicios</Link>
-          <Link onClick={()=> setNavOpen(false)} to="/Contacts">Contactos</Link>
-          <Link onClick={()=> setNavOpen(false)} to="/About">Sobre Nosotros</Link>
-        </LinksContainer>
+        <LinkContainer isOpen={navOpen}>
+          <span onClick={LinkScrollServices}>Servicios</span>
+          <span onClick={LinkScrollBottom}>Contactos</span>
+          <span onClick={LinkScrollBottom}>Sobre Nosotros</span>
+        </LinkContainer>
         <BtnMenu onClick={() => setNavOpen(!navOpen)}>
           <div></div>
           <div></div>
