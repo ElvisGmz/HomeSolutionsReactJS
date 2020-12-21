@@ -10,7 +10,7 @@ const HeroBanner = styled.div`
 
   &:before {
     position: absolute;
-    background-image: url("https://images.pexels.com/photos/279719/pexels-photo-279719.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-image: url("https://homesol.vercel.app/assets/images/pexels-andrea-piacquadio-3760529.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
