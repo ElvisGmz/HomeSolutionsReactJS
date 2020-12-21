@@ -49,6 +49,7 @@ const Box = styled.div`
 
   &:nth-child(1) {
     max-width: 200px;
+    user-select: text;
 
     @media only screen and (max-width: 405px) {
       max-width: 100%;
