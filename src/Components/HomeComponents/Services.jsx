@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { hero } from "../../hero-context";
 
 const Row = styled.div`
   min-height: 200px;
@@ -54,13 +55,13 @@ const Card = styled.div`
     width: 100%;
     margin-top: 2rem;
     margin-bottom: 0px;
-    font-weight: 300;
+    font-weight: 400;
   }
 
   & p {
     color: #ffffff;
     font-size: 14px;
-    font-weight: 200;
+    font-weight: 300;
     letter-spacing: 1px;
     line-height: 18px;
   }
@@ -72,7 +73,7 @@ const Icon = styled.img`
 `;
 
 const scrollTop = () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  window.scrollTo({ top: (hero.top - 70), behavior: "smooth" });
 };
 
 export default function Services() {

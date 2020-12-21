@@ -111,7 +111,6 @@ export default function NavBar() {
 
   const LinkScrollServices = () => {
     setNavOpen(false);
-    console.log(hero.height);
     window.scrollTo({ top: hero.height, behavior: "smooth" });
   };
 

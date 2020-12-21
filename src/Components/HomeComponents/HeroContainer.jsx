@@ -148,12 +148,14 @@ const Hr = styled.hr`
 `;
 
 export default function HeroContainer() {
-  const { setHeight } = useContext(HeroContext);
+  const { setHeight, setTop } = useContext(HeroContext);
   const getHeight = useRef();
+  const getTop = useRef();
 
   useEffect(() => {
     setHeight(getHeight.current.scrollHeight);
-  }, [setHeight]);
+    setTop(getTop.current.getBoundingClientRect().top)
+  }, [setHeight, setTop]);
 
   return (
     <React.Fragment>
@@ -175,7 +177,7 @@ export default function HeroContainer() {
               de profesionales en reparaciones de parquet y tarima.
             </p>
           </HeroTextContainer>
-          <HeroForm>
+          <HeroForm ref={getTop}>
             <Header>Cotiza Gratis</Header>
             <Input
               width="100%"
