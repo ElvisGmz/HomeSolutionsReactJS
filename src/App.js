@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import NavBar from "./Components/NavBar";
 import Home from "./Components/Home";
+import Dashboard from './Components/Dashboard'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
           <NavBar />
           <Home />
         </Route>
+        <Route path="/admin" component={Dashboard} />
       </Switch>
     </BrowserRouter>
   );
