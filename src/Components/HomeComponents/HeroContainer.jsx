@@ -1,6 +1,107 @@
-import React, { useContext, useRef, useEffect } from "react";
+import React, { useContext, useRef, useEffect, useState } from "react";
 import styled from "styled-components";
 import HeroContext from "../../hero-context";
+
+export default function HeroContainer() {
+  const [heroData, setHeroData] = useState([]);
+  const { setHeight, setTop } = useContext(HeroContext);
+  const getHeight = useRef();
+  const getTop = useRef();
+
+  useEffect(() => {
+    fetch(`https://backend-ugb-social-hours.vercel.app/api/hero`)
+      .then((res) => res.json())
+      .then((resJson) => setHeroData(resJson.data));
+  }, []);
+
+  useEffect(() => {
+    setHeight(getHeight.current.scrollHeight);
+    setTop(getTop.current.getBoundingClientRect().top);
+  }, [setHeight, setTop]);
+
+  return (
+    <React.Fragment>
+      <HeroBanner
+        banner={heroData[0] === undefined ? "" : heroData[0].imgBackground}
+      >
+        <HeroRow ref={getHeight}>
+          <HeroTextContainer>
+            {heroData.map(({ _id, title, description }) => (
+              <div key={_id}>
+                <h1>{title}</h1>
+                <p>{description}</p>
+              </div>
+            ))}
+          </HeroTextContainer>
+          <HeroForm ref={getTop}>
+            <Header>Cotiza Gratis</Header>
+            <Input
+              width="100%"
+              type="text"
+              bgColor="#f0f0f0"
+              txtColor="#000"
+              placeholder="Nombre y Apellidos"
+              required
+            />
+            <Input
+              width="100%"
+              type="text"
+              bgColor="#f0f0f0"
+              txtColor="#000"
+              placeholder="Direccion"
+              required
+            />
+            <Input
+              width="38%"
+              type="text"
+              bgColor="#f0f0f0"
+              txtColor="#000"
+              placeholder="Codigo Postal"
+              required
+            />
+            <Input
+              width="60%"
+              type="text"
+              bgColor="#f0f0f0"
+              txtColor="#000"
+              placeholder="Telefono"
+              required
+            />
+            <Input
+              width="100%"
+              type="email"
+              bgColor="#f0f0f0"
+              txtColor="#000"
+              placeholder="Correo Electronico"
+              required
+            />
+            <Description
+              placeholder="Describenos que reparacion o reforma necesitas realizar"
+              required
+            />
+            <Hr />
+            <label>Adjunta una Foto o un Plano:</label>
+            <Input width="100%" type="file" bgColor="#f0f0f0" txtColor="#000" />
+            <label htmlFor="checkUrgence">Urgente: </label>
+            <Input
+              width="auto"
+              id="checkUrgence"
+              type="checkbox"
+              bgColor="dodgerblue"
+              txtColor="#FFF"
+            />
+            <Input
+              width="100%"
+              type="submit"
+              bgColor="dodgerblue"
+              txtColor="#FFF"
+            />
+          </HeroForm>
+        </HeroRow>
+      </HeroBanner>
+    </React.Fragment>
+  );
+}
 
 const HeroBanner = styled.div`
   min-height: 575px;
@@ -10,7 +111,8 @@ const HeroBanner = styled.div`
 
   &:before {
     position: absolute;
-    background-image: url("https://homesol.vercel.app/assets/images/pexels-andrea-piacquadio-3760529.jpg");
+    background-color: #21212c;
+    background-image: url(${({ banner }) => banner});
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -146,103 +248,3 @@ const Hr = styled.hr`
   height: 1px;
   margin-bottom: 10px;
 `;
-
-export default function HeroContainer() {
-  const { setHeight, setTop } = useContext(HeroContext);
-  const getHeight = useRef();
-  const getTop = useRef();
-
-  useEffect(() => {
-    setHeight(getHeight.current.scrollHeight);
-    setTop(getTop.current.getBoundingClientRect().top)
-  }, [setHeight, setTop]);
-
-  return (
-    <React.Fragment>
-      <HeroBanner>
-        <HeroRow ref={getHeight}>
-          <HeroTextContainer>
-            <h1>Reparación e instalación de parquet y tarima</h1>
-            <p>
-              Hogar Soluciones cuenta con profesionales en parquet y tarima en
-              mantenimiento, reparaciones de alta cualificación, disponibles en
-              tu área geográfica y seleccionadas por Grupo Inter Partner
-              Assistance.
-            </p>
-            <p>
-              Toda instalación o reparación tiene 6 meses de garantía y cuenta
-              con una cobertura de Responsabilidad Civil que garantiza la
-              protección de la casa, piso, local o vivienda ante cualquier
-              desperfecto o inconveniente que pudieran necesitar la intervención
-              de profesionales en reparaciones de parquet y tarima.
-            </p>
-          </HeroTextContainer>
-          <HeroForm ref={getTop}>
-            <Header>Cotiza Gratis</Header>
-            <Input
-              width="100%"
-              type="text"
-              bgColor="#f0f0f0"
-              txtColor="#000"
-              placeholder="Nombre y Apellidos"
-              required
-            />
-            <Input
-              width="100%"
-              type="text"
-              bgColor="#f0f0f0"
-              txtColor="#000"
-              placeholder="Direccion"
-              required
-            />
-            <Input
-              width="38%"
-              type="text"
-              bgColor="#f0f0f0"
-              txtColor="#000"
-              placeholder="Codigo Postal"
-              required
-            />
-            <Input
-              width="60%"
-              type="text"
-              bgColor="#f0f0f0"
-              txtColor="#000"
-              placeholder="Telefono"
-              required
-            />
-            <Input
-              width="100%"
-              type="email"
-              bgColor="#f0f0f0"
-              txtColor="#000"
-              placeholder="Correo Electronico"
-              required
-            />
-            <Description
-              placeholder="Describenos que reparacion o reforma necesitas realizar"
-              required
-            />
-            <Hr />
-            <label>Adjunta una Foto o un Plano:</label>
-            <Input width="100%" type="file" bgColor="#f0f0f0" txtColor="#000" />
-            <label htmlFor="checkUrgence">Urgente: </label>
-            <Input
-              width="auto"
-              id="checkUrgence"
-              type="checkbox"
-              bgColor="dodgerblue"
-              txtColor="#FFF"
-            />
-            <Input
-              width="100%"
-              type="submit"
-              bgColor="dodgerblue"
-              txtColor="#FFF"
-            />
-          </HeroForm>
-        </HeroRow>
-      </HeroBanner>
-    </React.Fragment>
-  );
-}

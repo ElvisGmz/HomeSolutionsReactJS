@@ -1,6 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { hero } from "../../hero-context";
+
+export default function Services() {
+  const [services, setServices] = useState([]);
+
+  useEffect(() => {
+    fetch(`https://backend-ugb-social-hours.vercel.app/api/cards`)
+      .then((res) => res.json())
+      .then((resJson) => setServices(resJson.data));
+  }, []);
+
+  return (
+    <>
+      <Row>
+        <Title>Nuestros Servicios</Title>
+        <CardsContainer>
+          {services.map(
+            ({ icon, title, description, descriptionForm, _id }) => (
+                <Card key={_id} onClick={scrollTop}>
+                  <Icon src={icon} />
+                  <h1>{title}</h1>
+                  <p>
+                    {description}
+                  </p>
+                </Card>
+            )
+          )}
+        </CardsContainer>
+      </Row>
+    </>
+  );
+}
 
 const Row = styled.div`
   min-height: 200px;
@@ -73,77 +104,5 @@ const Icon = styled.img`
 `;
 
 const scrollTop = () => {
-  window.scrollTo({ top: (hero.top - 70), behavior: "smooth" });
+  window.scrollTo({ top: hero.top - 70, behavior: "smooth" });
 };
-
-export default function Services() {
-  return (
-    <>
-      <Row>
-        <Title>Nuestros Servicios</Title>
-        <CardsContainer>
-          <Card onClick={scrollTop}>
-            <Icon src="https://res.cloudinary.com/superfolio/image/upload/v1608151891/homesol/pared_mbq9hr.svg" />
-            <h1>Lorem ipsum dolor sit amet</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-              voluptatum corrupti reprehenderit dolores nobis natus minima
-              quibusdam molestias labore! Quae obcaecati tenetur voluptate
-              beatae. Accusamus, saepe deleniti! Iste, cum alias?
-            </p>
-          </Card>
-          <Card onClick={scrollTop}>
-            <Icon src="https://res.cloudinary.com/superfolio/image/upload/v1608151891/homesol/roller-paint_idwmu5.svg" />
-            <h1>Lorem ipsum dolor sit amet</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-              voluptatum corrupti reprehenderit dolores nobis natus minima
-              quibusdam molestias labore! Quae obcaecati tenetur voluptate
-              beatae. Accusamus, saepe deleniti! Iste, cum alias?
-            </p>
-          </Card>
-          <Card onClick={scrollTop}>
-            <Icon src="https://res.cloudinary.com/superfolio/image/upload/v1608151891/homesol/pared-de-vidrio_afnmwg.svg" />
-            <h1>Lorem ipsum dolor sit amet</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-              voluptatum corrupti reprehenderit dolores nobis natus minima
-              quibusdam molestias labore! Quae obcaecati tenetur voluptate
-              beatae. Accusamus, saepe deleniti! Iste, cum alias?
-            </p>
-          </Card>
-          <Card onClick={scrollTop}>
-            <Icon src="https://res.cloudinary.com/superfolio/image/upload/v1608151891/homesol/bloquear_bhz71x.svg" />
-            <h1>Lorem ipsum dolor sit amet</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-              voluptatum corrupti reprehenderit dolores nobis natus minima
-              quibusdam molestias labore! Quae obcaecati tenetur voluptate
-              beatae. Accusamus, saepe deleniti! Iste, cum alias?
-            </p>
-          </Card>
-          <Card onClick={scrollTop}>
-            <Icon src="https://res.cloudinary.com/superfolio/image/upload/v1608152470/homesol/sierra-circular_pefbeq.svg" />
-            <h1>Lorem ipsum dolor sit amet</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-              voluptatum corrupti reprehenderit dolores nobis natus minima
-              quibusdam molestias labore! Quae obcaecati tenetur voluptate
-              beatae. Accusamus, saepe deleniti! Iste, cum alias?
-            </p>
-          </Card>
-          <Card onClick={scrollTop}>
-            <Icon src="https://res.cloudinary.com/superfolio/image/upload/v1608151891/homesol/tubo_l7en3p.svg" />
-            <h1>Lorem ipsum dolor sit amet</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-              voluptatum corrupti reprehenderit dolores nobis natus minima
-              quibusdam molestias labore! Quae obcaecati tenetur voluptate
-              beatae. Accusamus, saepe deleniti! Iste, cum alias?
-            </p>
-          </Card>
-        </CardsContainer>
-      </Row>
-    </>
-  );
-}
