@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import {
   faFacebookSquare,
@@ -8,6 +8,79 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faPhoneSquare, faMap } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+export default function Footer() {
+  const [about, setAbout] = useState([]);
+  const [address, setAddress] = useState([]);
+
+  useEffect(() => {
+    fetch(`https://backend-ugb-social-hours.vercel.app/api/about`)
+      .then((res) => res.json())
+      .then((resJson) => setAbout(resJson.data));
+
+    fetch(`https://backend-ugb-social-hours.vercel.app/api/address`)
+      .then((res) => res.json())
+      .then((resJson) => setAddress(resJson.data));
+  }, []);
+
+  return (
+    <>
+      <Row>
+        <FooterContainer>
+          <Box>
+            <h1>Contactos</h1>
+            <ContactsContainer>
+              <FontAwesomeIcon size="lg" icon={faFacebookSquare} />
+              <span> @HomeSol</span>
+            </ContactsContainer>
+            <ContactsContainer>
+              <FontAwesomeIcon size="lg" icon={faInstagramSquare} />
+              <span> @HomeSol</span>
+            </ContactsContainer>
+            <ContactsContainer>
+              <FontAwesomeIcon size="lg" icon={faLinkedin} />
+              <span> @HomeSol</span>
+            </ContactsContainer>
+            <ContactsContainer>
+              <FontAwesomeIcon size="lg" icon={faWhatsappSquare} />
+              <span>+503 4772 3212</span>
+            </ContactsContainer>
+            <ContactsContainer>
+              <FontAwesomeIcon size="lg" icon={faPhoneSquare} />
+              <span>+503 4772 3212</span>
+            </ContactsContainer>
+          </Box>
+          <Box>
+            <h1>Dirección</h1>
+            <p>{address[0] === undefined ? "" : address[0].address}</p>
+            <p>{address[0] === undefined ? "" : address[0].secondLine}</p>
+            {address[0] !== undefined ? (
+              <Button
+                onClick={() =>
+                  window.open(
+                    address[0] === undefined ? "" : address[0].url,
+                    "_blank"
+                  )
+                }
+              >
+                <FontAwesomeIcon size="lg" icon={faMap} /> Ver en Maps
+              </Button>
+            ) : (
+              ""
+            )}
+          </Box>
+          <Box>
+            <h1>{about[0] === undefined ? "" : about[0].title}</h1>
+            <p>{about[0] === undefined ? "" : about[0].text}</p>
+          </Box>
+          <CopyFooter>
+            HomeSolutions &copy; - Made With ❤ for SGK.dev
+          </CopyFooter>
+        </FooterContainer>
+      </Row>
+    </>
+  );
+}
 
 const Row = styled.footer`
   background-color: #152838;
@@ -102,65 +175,3 @@ const Button = styled.button`
     background-color: #0d6447;
   }
 `;
-
-export default function Footer() {
-  return (
-    <>
-      <Row>
-        <FooterContainer>
-          <Box>
-            <h1>Contactos</h1>
-            <ContactsContainer>
-              <FontAwesomeIcon size="lg" icon={faFacebookSquare} />
-              <span> @HomeSol</span>
-            </ContactsContainer>
-            <ContactsContainer>
-              <FontAwesomeIcon size="lg" icon={faInstagramSquare} />
-              <span> @HomeSol</span>
-            </ContactsContainer>
-            <ContactsContainer>
-              <FontAwesomeIcon size="lg" icon={faLinkedin} />
-              <span> @HomeSol</span>
-            </ContactsContainer>
-            <ContactsContainer>
-              <FontAwesomeIcon size="lg" icon={faWhatsappSquare} />
-              <span>+503 4772 3212</span>
-            </ContactsContainer>
-            <ContactsContainer>
-              <FontAwesomeIcon size="lg" icon={faPhoneSquare} />
-              <span>+503 4772 3212</span>
-            </ContactsContainer>
-          </Box>
-          <Box>
-            <h1>Dirección</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Laudantium temporibus veritatis non neque consectetur? Quos,
-              reiciendis ullam aut aspernatur nisi similique
-            </p>
-            <Button
-              onClick={() =>
-                window.open("https://goo.gl/maps/TUcPzvMyXw7nzdFV8", "_blank")
-              }
-            >
-              <FontAwesomeIcon size="lg" icon={faMap} /> Ver en Maps
-            </Button>
-          </Box>
-          <Box>
-            <h1>Sobre Nosotros</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Laudantium temporibus veritatis non neque consectetur? Quos,
-              reiciendis ullam aut aspernatur nisi similique, et quibusdam ipsum
-              quaerat beatae libero totam, voluptatibus quis?
-            </p>
-          </Box>
-          <CopyFooter>
-            HomeSolutions &copy; - Made With ❤ for SGK.dev
-          </CopyFooter>
-        </FooterContainer>
-      </Row>
-    </>
-  );
-}
