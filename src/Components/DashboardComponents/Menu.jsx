@@ -11,6 +11,39 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+export default function Menu() {
+  const [isOpen, setOpen] = useState(false);
+
+  return (
+    <MenuContainer ancho={isOpen ? "310px" : "50px"}>
+      <Bar>
+        <BurguerBtn onClick={() => setOpen(!isOpen)}>
+          <FontAwesomeIcon icon={faBars} />
+        </BurguerBtn>
+
+        <Items>
+          <Link to="/admin/setview">
+            <FontAwesomeIcon icon={faBrush} />
+          </Link>
+          <Link to="/admin/list">
+            <FontAwesomeIcon icon={faClipboardList} />
+          </Link>
+          <Link to="/admin/services">
+            <FontAwesomeIcon icon={faConciergeBell} />
+          </Link>
+          <Link to="/admin/setabout">
+            <FontAwesomeIcon icon={faAddressCard} />
+          </Link>
+        </Items>
+
+        <LogOutBtn>
+          <FontAwesomeIcon icon={faTimesCircle} />
+        </LogOutBtn>
+      </Bar>
+    </MenuContainer>
+  );
+}
+
 const MenuContainer = styled.div`
   background-color: #21212c;
   color: #fff;
@@ -19,6 +52,13 @@ const MenuContainer = styled.div`
   max-width: ${({ ancho }) => ancho};
   display: flex;
   transition: all 0.2s;
+  min-height: 320px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100000;
+  overflow: hidden;
 `;
 
 const Bar = styled.div`
@@ -144,36 +184,3 @@ const LogOutBtn = styled.span`
     background-color: crimson;
   }
 `;
-
-export default function Menu() {
-  const [isOpen, setOpen] = useState(false);
-
-  return (
-    <MenuContainer ancho={isOpen ? "310px" : "50px"}>
-      <Bar>
-        <BurguerBtn onClick={() => setOpen(!isOpen)}>
-          <FontAwesomeIcon icon={faBars} />
-        </BurguerBtn>
-
-        <Items>
-          <Link to="/admin/setview">
-            <FontAwesomeIcon icon={faBrush} />
-          </Link>
-          <Link to="/admin/list">
-            <FontAwesomeIcon icon={faClipboardList} />
-          </Link>
-          <Link to="/admin/services">
-            <FontAwesomeIcon icon={faConciergeBell} />
-          </Link>
-          <Link to="/admin/setabout">
-            <FontAwesomeIcon icon={faAddressCard} />
-          </Link>
-        </Items>
-
-        <LogOutBtn>
-          <FontAwesomeIcon icon={faTimesCircle} />
-        </LogOutBtn>
-      </Bar>
-    </MenuContainer>
-  );
-}
