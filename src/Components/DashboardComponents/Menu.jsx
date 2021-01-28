@@ -11,8 +11,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+
 export default function Menu() {
   const [isOpen, setOpen] = useState(false);
+  
 
   return (
     <MenuContainer ancho={isOpen ? "310px" : "50px"}>

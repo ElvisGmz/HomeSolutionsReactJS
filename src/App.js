@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Switch, BrowserRouter, Route } from "react-router-dom";
 import NavBar from "./Components/NavBar";
 import Home from "./Components/Home";
 import Dashboard from './Components/Dashboard'
