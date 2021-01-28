@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { BrowserRouter, Link } from "react-router-dom";
 import styled from "styled-components";
 import {
   faBars,
@@ -22,18 +22,20 @@ export default function Menu() {
         </BurguerBtn>
 
         <Items>
-          <Link to="/admin/setview">
-            <FontAwesomeIcon icon={faBrush} />
-          </Link>
-          <Link to="/admin/list">
-            <FontAwesomeIcon icon={faClipboardList} />
-          </Link>
-          <Link to="/admin/services">
-            <FontAwesomeIcon icon={faConciergeBell} />
-          </Link>
-          <Link to="/admin/setabout">
-            <FontAwesomeIcon icon={faAddressCard} />
-          </Link>
+          <BrowserRouter basename="/admin">
+            <Link to="/setview">
+              <FontAwesomeIcon icon={faBrush} />
+            </Link>
+            <Link to="/list">
+              <FontAwesomeIcon icon={faClipboardList} />
+            </Link>
+            <Link to="/services">
+              <FontAwesomeIcon icon={faConciergeBell} />
+            </Link>
+            <Link to="/setabout">
+              <FontAwesomeIcon icon={faAddressCard} />
+            </Link>
+          </BrowserRouter>
         </Items>
 
         <LogOutBtn>
@@ -83,7 +85,7 @@ const BurguerBtn = styled.span`
 
   &:hover,
   &:hover:after {
-    background-color: #0fb140;
+    background-color: purple;
   }
 
   &:after {
@@ -147,7 +149,8 @@ const Items = styled.div`
       content: "Ajustes de Contactos";
     }
 
-    &:hover, &:hover:after {
+    &:hover,
+    &:hover:after {
       background-color: #0e68c2;
     }
   }
@@ -163,24 +166,23 @@ const LogOutBtn = styled.span`
   justify-content: center;
   transition: all 0.2s;
 
-
-
   &:after {
-      content: 'Cerrar Sesion';
-      box-sizing: border-box;
-      padding-left: 10px;
-      position: absolute;
-      left: 51px;
-      font-size: 16px;
-      width: 260px;
-      height: 50px;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      transition: 0.2s all;
-    }
+    content: "Cerrar Sesion";
+    box-sizing: border-box;
+    padding-left: 10px;
+    position: absolute;
+    left: 51px;
+    font-size: 16px;
+    width: 260px;
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    transition: 0.2s all;
+  }
 
-  &:hover, &:hover:after {
+  &:hover,
+  &:hover:after {
     background-color: crimson;
   }
 `;

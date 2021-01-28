@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import SetViewHero from './ComponentsContainer/SetViewHero'
+import ViewList from './ComponentsContainer/ViewList'
 
 const Content = styled.div`
   background-color: #8ec5fc;
@@ -21,7 +23,12 @@ export default function Container() {
   return (
     <>
       <Content>
-        <SetViewHero />
+        <BrowserRouter forceRefresh={true} basename="/admin">
+          <Switch>
+            <Route exact path="/setview" component={SetViewHero} />
+            <Route exact path="/list" component={ViewList} />
+          </Switch>
+        </BrowserRouter>
       </Content>
     </>
   );
