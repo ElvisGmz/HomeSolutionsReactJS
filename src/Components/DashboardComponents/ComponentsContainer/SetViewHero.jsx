@@ -54,13 +54,20 @@ const FormContainer = styled.div`
   border-radius: 10px;
   min-width: 280px;
   width: 100%;
-  min-height: 100%;
+  max-width: 1144px;
+  height: 100%;
+  max-height: 600px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-flow: row wrap;
   box-sizing: border-box;
   padding: 1rem;
+  
+  @media only screen and (max-width: 1155px){
+    height: auto;
+    max-height: 100%;
+  }
 `;
 
 const Form = styled.form`
@@ -99,7 +106,7 @@ const Form = styled.form`
 const Preview = styled.div`
   background-color: #21212c;
   width: 50%;
-  height: calc(100vh - 200px);
+  height: calc(100% - 100px);
   border-radius: 10px;
   overflow: hidden;
   padding: 0;

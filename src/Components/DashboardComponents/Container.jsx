@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import SetViewHero from "./ComponentsContainer/SetViewHero";
 import ViewList from "./ComponentsContainer/ViewList";
 
@@ -17,17 +17,20 @@ const Content = styled.div`
   align-items: center;
   position: relative;
   margin-left: 50px;
+  
+  @media only screen and (max-width: 1155px){
+    padding: 0;
+    border-radius: 0;
+  }
 `;
 
 export default function Container() {
   return (
-    <BrowserRouter basename="/admin">
       <Content>
         <Switch>
-          <Route exact path="/setview" component={SetViewHero} />
-          <Route exact path="/list" component={ViewList} />
+          <Route exact path="/admin/setview" component={SetViewHero} />
+          <Route exact path="/admin/list" component={ViewList} />
         </Switch>
       </Content>
-    </BrowserRouter>
   );
 }

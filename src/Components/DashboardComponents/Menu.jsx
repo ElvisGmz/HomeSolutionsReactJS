@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import {
   faBars,
@@ -23,24 +23,22 @@ export default function Menu() {
           <FontAwesomeIcon icon={faBars} />
         </BurguerBtn>
 
-        <Items>
-          <BrowserRouter basename="/admin">
-            <Link to="/setview">
+        <Items onClick={() => setOpen(false)}>
+            <Link to="/admin/setview">
               <FontAwesomeIcon icon={faBrush} />
             </Link>
-            <Link to="/list">
+            <Link to="/admin/list">
               <FontAwesomeIcon icon={faClipboardList} />
             </Link>
-            <Link to="/services">
+            <Link to="/admin/services">
               <FontAwesomeIcon icon={faConciergeBell} />
             </Link>
-            <Link to="/setabout">
+            <Link to="/admin/setabout">
               <FontAwesomeIcon icon={faAddressCard} />
             </Link>
-          </BrowserRouter>
         </Items>
 
-        <LogOutBtn>
+        <LogOutBtn onClick={() => setOpen(false)}>
           <FontAwesomeIcon icon={faTimesCircle} />
         </LogOutBtn>
       </Bar>
