@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Route, Switch } from "react-router-dom";
 import SetViewHero from "./ComponentsContainer/SetViewHero";
 import ViewList from "./ComponentsContainer/ViewList";
+import SetServices from "./ComponentsContainer/SetServices";
 
 const Content = styled.div`
   background-color: #8ec5fc;
@@ -15,10 +16,11 @@ const Content = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-flow: column nowrap;
   position: relative;
   margin-left: 50px;
-  
-  @media only screen and (max-width: 1155px){
+
+  @media only screen and (max-width: 1155px) {
     padding: 0;
     border-radius: 0;
   }
@@ -26,11 +28,12 @@ const Content = styled.div`
 
 export default function Container() {
   return (
-      <Content>
-        <Switch>
-          <Route exact path="/admin/setview" component={SetViewHero} />
-          <Route exact path="/admin/list" component={ViewList} />
-        </Switch>
-      </Content>
+    <Content>
+      <Switch>
+        <Route exact path="/admin" component={SetViewHero} />
+        <Route exact path="/admin/list" component={ViewList} />
+        <Route exact path="/admin/services" component={SetServices} />
+      </Switch>
+    </Content>
   );
 }

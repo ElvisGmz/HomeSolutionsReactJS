@@ -11,10 +11,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-
 export default function Menu() {
   const [isOpen, setOpen] = useState(false);
-  
 
   return (
     <MenuContainer ancho={isOpen ? "310px" : "50px"}>
@@ -24,18 +22,18 @@ export default function Menu() {
         </BurguerBtn>
 
         <Items onClick={() => setOpen(false)}>
-            <Link to="/admin/setview">
-              <FontAwesomeIcon icon={faBrush} />
-            </Link>
-            <Link to="/admin/list">
-              <FontAwesomeIcon icon={faClipboardList} />
-            </Link>
-            <Link to="/admin/services">
-              <FontAwesomeIcon icon={faConciergeBell} />
-            </Link>
-            <Link to="/admin/setabout">
-              <FontAwesomeIcon icon={faAddressCard} />
-            </Link>
+          <Link to="/admin">
+            <FontAwesomeIcon icon={faBrush} />
+          </Link>
+          <Link to="/admin/list">
+            <FontAwesomeIcon icon={faClipboardList} />
+          </Link>
+          <Link to="/admin/services">
+            <FontAwesomeIcon icon={faConciergeBell} />
+          </Link>
+          <Link to="/admin/setabout">
+            <FontAwesomeIcon icon={faAddressCard} />
+          </Link>
         </Items>
 
         <LogOutBtn onClick={() => setOpen(false)}>

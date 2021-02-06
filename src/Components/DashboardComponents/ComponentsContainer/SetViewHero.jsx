@@ -63,10 +63,11 @@ const FormContainer = styled.div`
   flex-flow: row wrap;
   box-sizing: border-box;
   padding: 1rem;
-  
-  @media only screen and (max-width: 1155px){
+
+  @media only screen and (max-width: 1155px) {
     height: auto;
     max-height: 100%;
+    border-radius: 0px;
   }
 `;
 
@@ -92,15 +93,12 @@ const Form = styled.form`
     min-height: 200px;
   }
 
-  
-
-  @media only screen and (max-width: 1155px){
+  @media only screen and (max-width: 1155px) {
     min-width: 100px;
     width: 100%;
     max-width: 800px;
     margin: 10px;
   }
-
 `;
 
 const Preview = styled.div`
@@ -120,16 +118,15 @@ const Preview = styled.div`
     object-fit: cover;
   }
 
-@media only screen and (max-width: 1155px){
-  min-width: 100px;
-  width: 100%;
-  max-width: 800px;
-  height: 500px;
-  margin-top: 2rem;
-}
+  @media only screen and (max-width: 1155px) {
+    min-width: 100px;
+    width: 100%;
+    max-width: 800px;
+    height: 500px;
+    margin-top: 2rem;
+  }
 
-@media only screen and (max-width: 768px){
-  height: 300px;
-}
-
+  @media only screen and (max-width: 768px) {
+    height: 300px;
+  }
 `;

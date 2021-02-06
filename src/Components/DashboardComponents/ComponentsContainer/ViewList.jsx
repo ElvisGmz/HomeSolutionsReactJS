@@ -4,30 +4,30 @@ import styled from "styled-components";
 export default function ViewList() {
   return (
     <CardContainer>
-    <Card>
-      <h1>Juan Campos Lopez</h1>
-      <span>+503 7879 1234</span>
-      <span>miempresa@gmail.com</span>
+      <Card>
+        <h1>Juan Campos Lopez</h1>
+        <span>+503 7879 1234</span>
+        <span>miempresa@gmail.com</span>
 
-      <p id="postalCode">CP 3021</p>
-      <p id="addr">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas
-        quisquam, quibusdam aut officia qui sed omnis impedit odio a
-        laboriosam temporibus quae distinctio incidunt adipisci dolores quis
-        tempore? Aut, quas!
-      </p>
+        <p id="postalCode">CP 3021</p>
+        <p id="addr">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas
+          quisquam, quibusdam aut officia qui sed omnis impedit odio a
+          laboriosam temporibus quae distinctio incidunt adipisci dolores quis
+          tempore? Aut, quas!
+        </p>
 
-      <p id="desc">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas
-        quisquam, quibusdam aut officia qui sed omnis impedit odio a
-        laboriosam temporibus quae distinctio incidunt adipisci dolores quis
-        tempore? Aut, quas!
-      </p>
+        <p id="desc">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas
+          quisquam, quibusdam aut officia qui sed omnis impedit odio a
+          laboriosam temporibus quae distinctio incidunt adipisci dolores quis
+          tempore? Aut, quas!
+        </p>
 
-      <a href="/images/myw3schoolsimage.jpg" download>
-        Descargar Archivo(s)
-      </a>
-    </Card>
+        <a href="/images/myw3schoolsimage.jpg" download>
+          Descargar Archivo(s)
+        </a>
+      </Card>
       <Card>
         <h1>Juan Campos Lopez</h1>
         <span>+503 7879 1234</span>
@@ -174,6 +174,7 @@ const CardContainer = styled.div`
   @media only screen and (max-width: 1155px) {
     height: auto;
     max-height: 100%;
+    border-radius: 0px;
   }
 `;
 
@@ -187,6 +188,7 @@ const Card = styled.div`
   border-radius: 5px;
   flex: 29%;
   font-size: 12px;
+  max-width: 351px;
 
   h1 {
     margin-bottom: 0;
@@ -199,17 +201,17 @@ const Card = styled.div`
     font-size: 12px;
   }
 
-  #postalCode{
-      font-size: 16px;
-      font-weight: 900;
-      margin-bottom: 0;
-      border-top: 1px solid #a9afcf;
-      padding-top: 15px;
+  #postalCode {
+    font-size: 16px;
+    font-weight: 900;
+    margin-bottom: 0;
+    border-top: 1px solid #a9afcf;
+    padding-top: 15px;
   }
 
-#addr, #desc{
+  #addr,
+  #desc {
     border-bottom: 1px solid #a9afcf;
     padding-bottom: 15px;
-}
-
+  }
 `;

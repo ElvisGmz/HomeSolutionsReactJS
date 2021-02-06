@@ -18,13 +18,11 @@ export default function Services() {
         <CardsContainer>
           {services.map(
             ({ icon, title, description, descriptionForm, _id }) => (
-                <Card key={_id} onClick={scrollTop}>
-                  <Icon src={icon} />
-                  <h1>{title}</h1>
-                  <p>
-                    {description}
-                  </p>
-                </Card>
+              <Card key={_id} onClick={scrollTop}>
+                <Icon src={icon} />
+                <h1>{title}</h1>
+                <p>{description}</p>
+              </Card>
             )
           )}
         </CardsContainer>
