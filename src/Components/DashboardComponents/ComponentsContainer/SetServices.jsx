@@ -106,6 +106,16 @@ export default function SetServices() {
             veritatis sit totam at.
           </p>
         </Card>
+        <Card>
+          <Icon src="https://res.cloudinary.com/superfolio/image/upload/v1608151891/homesol/roller-paint_idwmu5.svg" />
+          <h1>Titulo</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
+            maiores non at nisi quasi. Ratione reprehenderit exercitationem
+            itaque amet possimus ut repellendus, eum facilis enim sequi,
+            veritatis sit totam at.
+          </p>
+        </Card>
       </CardContainer>
     </>
   );

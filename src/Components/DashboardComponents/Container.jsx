@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import SetViewHero from "./ComponentsContainer/SetViewHero";
 import ViewList from "./ComponentsContainer/ViewList";
 import SetServices from "./ComponentsContainer/SetServices";
+import SetAbout from "./ComponentsContainer/SetAbout";
 
 const Content = styled.div`
   background-color: #8ec5fc;
@@ -33,6 +34,7 @@ export default function Container() {
         <Route exact path="/admin" component={SetViewHero} />
         <Route exact path="/admin/list" component={ViewList} />
         <Route exact path="/admin/services" component={SetServices} />
+        <Route exact path="/admin/setabout" component={SetAbout} />
       </Switch>
     </Content>
   );
