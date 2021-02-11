@@ -18,8 +18,8 @@ export default function Footer() {
       .then((resJson) => setAddress(resJson.data));
 
       fetch(`https://backend-ugb-social-hours.vercel.app/api/contacts`)
-      .then(res=>res.json())
-      .then(resJson=>setContacts(resJson.data));
+      .then((res) => res.json())
+      .then((resJson) => setContacts(resJson.data));
 
   }, []);
 
