@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function Footer() {
   const [about, setAbout] = useState([]);
   const [address, setAddress] = useState([]);
+  const [contacts, setContacts] = useState([]);
 
   useEffect(() => {
     fetch(`https://backend-ugb-social-hours.vercel.app/api/about`)
@@ -21,6 +22,11 @@ export default function Footer() {
     fetch(`https://backend-ugb-social-hours.vercel.app/api/address`)
       .then((res) => res.json())
       .then((resJson) => setAddress(resJson.data));
+
+      fetch(`https://backend-ugb-social-hours.vercel.app/api/contacts`)
+      .then(res=>res.json())
+      .then(resJson=>setContacts(resJson.data));
+
   }, []);
 
   return (
@@ -29,26 +35,15 @@ export default function Footer() {
         <FooterContainer>
           <Box>
             <h1>Contactos</h1>
+           {
+           contacts.map(
+            contact=>
             <ContactsContainer>
-              <FontAwesomeIcon size="lg" icon={faFacebookSquare} />
-              <span> @HomeSol</span>
-            </ContactsContainer>
-            <ContactsContainer>
-              <FontAwesomeIcon size="lg" icon={faInstagramSquare} />
-              <span> @HomeSol</span>
-            </ContactsContainer>
-            <ContactsContainer>
-              <FontAwesomeIcon size="lg" icon={faLinkedin} />
-              <span> @HomeSol</span>
-            </ContactsContainer>
-            <ContactsContainer>
-              <FontAwesomeIcon size="lg" icon={faWhatsappSquare} />
-              <span>+503 4772 3212</span>
-            </ContactsContainer>
-            <ContactsContainer>
-              <FontAwesomeIcon size="lg" icon={faPhoneSquare} />
-              <span>+503 4772 3212</span>
-            </ContactsContainer>
+            <i class={contact.icon}></i>
+            <span>{contact.name}</span>
+          </ContactsContainer>
+          )
+          }
           </Box>
           <Box>
             <h1>Dirección</h1>
