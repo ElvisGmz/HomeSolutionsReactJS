@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import {
-  faFacebookSquare,
-  faLinkedin,
-  faInstagramSquare,
-  faWhatsappSquare,
-} from "@fortawesome/free-brands-svg-icons";
-import { faPhoneSquare, faMap } from "@fortawesome/free-solid-svg-icons";
+import { faMap } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Footer() {
